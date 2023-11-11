@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/product.module';
 import { ReviewModule } from './review/review.module';
 import { OrderModule } from './order/order.module';
+import { MetodoPagoModule } from './metodo_de_pago/metodo_de_pago.module';
 
 @Module({
   imports: [
@@ -23,7 +24,9 @@ import { OrderModule } from './order/order.module';
     UsersModule,
     ProductsModule,
     ReviewModule,
-    OrderModule
+    OrderModule,
+    MetodoPagoModule
+  
   ],
   controllers: [AppController],
   providers: [AppService],

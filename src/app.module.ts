@@ -7,6 +7,8 @@ import { ProductsModule } from './products/product.module';
 import { ReviewModule } from './review/review.module';
 import { OrderModule } from './order/order.module';
 import { MetodoPagoModule } from './metodo_de_pago/metodo_de_pago.module';
+import { CategoryModule } from './category/category.module';
+import { CarritoComprasModule } from './carrito_de_compras/carrito_compras.module';
 
 @Module({
   imports: [
@@ -25,7 +27,9 @@ import { MetodoPagoModule } from './metodo_de_pago/metodo_de_pago.module';
     ProductsModule,
     ReviewModule,
     OrderModule,
-    MetodoPagoModule
+    MetodoPagoModule,
+    CategoryModule,
+    CarritoComprasModule
   
   ],
   controllers: [AppController],

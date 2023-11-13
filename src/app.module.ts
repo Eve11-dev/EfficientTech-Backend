@@ -9,6 +9,10 @@ import { OrderModule } from './order/order.module';
 import { MetodoPagoModule } from './metodo_de_pago/metodo_de_pago.module';
 import { CategoryModule } from './category/category.module';
 import { CarritoComprasModule } from './carrito_de_compras/carrito_compras.module';
+import { FilesModule } from './files/files.module';
+import { FilesPDFModule } from './FilesPDF/filesPDF.module';
+import { ClienteModule } from './clientes/cliente.module';
+import { ProveedoresModule } from './proveedores/proveedores.module';
 
 @Module({
   imports: [
@@ -29,7 +33,11 @@ import { CarritoComprasModule } from './carrito_de_compras/carrito_compras.modul
     OrderModule,
     MetodoPagoModule,
     CategoryModule,
-    CarritoComprasModule
+    CarritoComprasModule,
+    FilesModule,
+    FilesPDFModule,
+    ClienteModule,
+    ProveedoresModule
   
   ],
   controllers: [AppController],

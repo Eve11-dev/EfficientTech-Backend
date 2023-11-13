@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Order } from "src/order/entities/order.entity";
+import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'carritocompras' })
 export class CarritoCompras {
@@ -17,4 +18,10 @@ export class CarritoCompras {
 
   @Column({ type: 'numeric', name: 'total', nullable: false })
   cant_product: number;
+
+  //Relacion
+
+  @ManyToOne(() => Order, (order: Order) => order.carritocompras)
+  @JoinTable()
+  order: Order[];
 }

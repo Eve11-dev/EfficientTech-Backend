@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { User } from 'src/users/entities/users.entity';
+import { Column, Entity, JoinTable, ManyToOne, PrimaryColumn } from 'typeorm';
 
 //Nombre de la entidad
 @Entity({ name: 'review' })
@@ -20,4 +21,9 @@ export class Review {
 
   @Column({type: 'varchar', nullable:false}) 
   name_user: string;
+
+  //Relacion 
+  @ManyToOne(() => User, (user: User) => user.review)
+  @JoinTable()
+  user: User[];
 }

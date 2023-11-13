@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Order } from "src/order/entities/order.entity";
+import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'metodopago' })
 export class MetodoPago {
@@ -17,6 +18,9 @@ export class MetodoPago {
 
   @Column({ type: 'varchar', nullable: false })
   description:string;
-
+// Relacion 
+@ManyToOne(() => Order, (order: Order) => order.metodopago)
+      @JoinTable()
+      order: Order[];
 
 }

@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { CarritoCompras } from 'src/carrito_de_compras/entities/carrito-compras.entity';
+import { Cliente } from 'src/clientes/entities/cliente.entity';
+import { MetodoPago } from 'src/metodo_de_pago/entities/metodo_de_pago.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinTable, OneToMany } from 'typeorm';
 
 @Entity({ name: 'order' })
 export class Order {
@@ -28,4 +31,23 @@ export class Order {
     length: 10,
   })
   codigoPostal: string;
+
+  //Relacion 
+  @ManyToOne(() => Cliente, (cliente: Cliente) => cliente.order)
+  @JoinTable()
+  cliente: Cliente[];
+
+  @OneToMany(() => MetodoPago, (metodopago: MetodoPago) => metodopago.order, {
+    cascade: true,
+    eager: true,
+  })
+  @JoinTable()
+  metodopago: MetodoPago[];
+
+  @OneToMany(() => CarritoCompras, (carritocompras: CarritoCompras) => carritocompras.order, {
+    cascade: true,
+    eager: true,
+  })
+  @JoinTable()
+  carritocompras: CarritoCompras[];
 }

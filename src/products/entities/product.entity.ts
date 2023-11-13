@@ -1,3 +1,4 @@
+import { Category } from 'src/category/entities/category.entity';
 import { User } from 'src/users/entities/users.entity';
 import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn, } from 'typeorm';
 
@@ -37,5 +38,9 @@ import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn, } from 't
     @ManyToOne(() => User, (user: User) => user.products)
     @JoinTable()
     user: User[];
+
+    @ManyToOne(() => Category, (category: Category) => category.product)
+  @JoinTable()
+  category: Category[];
   }
   

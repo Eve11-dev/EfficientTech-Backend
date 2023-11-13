@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinTable } from 'typeorm';
 import { UserImage } from './user.image.entity';
 import { Product } from 'src/products/entities/product.entity';
+import { Review } from 'src/review/entities/review.entity';
 
 
 @Entity()
@@ -42,4 +43,11 @@ export class User{
   })
   @JoinTable()
   products: Product[];
+
+  @OneToMany(() => Review, (review: Review) => review.user, {
+    cascade: true,
+    eager: true,
+  })
+  @JoinTable()
+  review: Review[];
 } 
